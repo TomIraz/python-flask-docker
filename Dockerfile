@@ -10,4 +10,5 @@ EXPOSE 8080
 USER 1001
 
 ENTRYPOINT ["python"]
+# ENTRYPOINT ["python", "src/app.py"]
 CMD ["src/app.py"]
