@@ -1,4 +1,4 @@
-service:
+services:
   my-app:
     build:
       context: .
@@ -6,26 +6,26 @@ service:
     ports:
       - "8080"
     volumes:
-      - "app:/app"
-      - "./images:/app/images"
+      - app:/app
+      - ./images:/app/images
     depends_on:
       - db
-    environments:
+    environment:
       - APP_ENV=DEV
 
   db:
     image: postgres:15-alpine
-    environments:
+    environment:
       - POSTGRES_PASSWORD=postgres
       - POSTGRES_USER=postgres
       - POSTGRES_DB=postgres
     ports:
       - "5432:5432"
     volumes:
-      - "postgresql-data:/var/lib/postgresql/data":ro
+      - postgresql-data:/var/lib/postgresql/data:ro
 
 volumes:
-  app-python:
+  app:
   postgresql-data:
   
       
